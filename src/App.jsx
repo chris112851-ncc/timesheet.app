@@ -54,7 +54,7 @@ function App() {
       const r3 = await supabase.from('tasks').select('*')
       if (r3.data) setTasks(r3.data.map(t => t.name))
       
-      const r4 = await supabase.from('entries').select('*').limit(100000).order('date', { ascending: false })
+      const r4 = await supabase.from('entries').select('*').limit(10000000).order('date', { ascending: false })
       if (r4.data) setEntries(r4.data.map(e => ({...e, startTime: e.start_time, endTime: e.end_time})))
       
       const r5 = await supabase.from('locked_dates').select('*')
